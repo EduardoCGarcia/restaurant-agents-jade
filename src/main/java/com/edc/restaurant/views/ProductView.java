@@ -1,9 +1,13 @@
 package com.edc.restaurant.views;
 
+import com.edc.restaurant.tools.FondoImagen;
+
+
 public class ProductView extends javax.swing.JPanel {
 
     public ProductView() {
         initComponents();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -11,11 +15,13 @@ public class ProductView extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        lblNombre = new javax.swing.JLabel();
+        lblPrecio = new javax.swing.JLabel();
+        pnlImagen = new FondoImagen("imagen_1.jpg");
         jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnOrdenar = new javax.swing.JButton();
+        btnVerDescripcion = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new java.awt.BorderLayout());
@@ -23,51 +29,70 @@ public class ProductView extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(153, 255, 153));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setBackground(new java.awt.Color(153, 255, 153));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("$ Precio del producto $");
-        jPanel1.add(jLabel1, java.awt.BorderLayout.PAGE_END);
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.setLayout(new java.awt.BorderLayout());
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel1.add(jPanel2, java.awt.BorderLayout.CENTER);
+        lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(0, 0, 0));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre.setText("Nombre");
+        jPanel3.add(lblNombre, java.awt.BorderLayout.CENTER);
+
+        jPanel1.add(jPanel3, java.awt.BorderLayout.PAGE_START);
+
+        lblPrecio.setBackground(new java.awt.Color(153, 255, 153));
+        lblPrecio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblPrecio.setForeground(new java.awt.Color(0, 102, 0));
+        lblPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPrecio.setText("$ Precio del producto $");
+        jPanel1.add(lblPrecio, java.awt.BorderLayout.PAGE_END);
+
+        pnlImagen.setBackground(new java.awt.Color(255, 255, 255));
+        pnlImagen.setMaximumSize(new java.awt.Dimension(150, 86));
+        pnlImagen.setMinimumSize(new java.awt.Dimension(150, 86));
+        pnlImagen.setPreferredSize(new java.awt.Dimension(150, 86));
+        pnlImagen.setLayout(new java.awt.BorderLayout());
+        jPanel1.add(pnlImagen, java.awt.BorderLayout.CENTER);
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
 
         jPanel4.setLayout(new java.awt.GridLayout(1, 0));
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 51, 51));
-        jButton1.setText("Ver descripción");
-        jPanel4.add(jButton1);
+        btnOrdenar.setBackground(new java.awt.Color(0, 204, 255));
+        btnOrdenar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnOrdenar.setForeground(new java.awt.Color(0, 51, 51));
+        btnOrdenar.setText("Ver");
+        jPanel4.add(btnOrdenar);
 
-        jButton2.setBackground(new java.awt.Color(51, 255, 51));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 51, 51));
-        jButton2.setText("Ordenar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnVerDescripcion.setBackground(new java.awt.Color(51, 255, 51));
+        btnVerDescripcion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnVerDescripcion.setForeground(new java.awt.Color(0, 51, 51));
+        btnVerDescripcion.setText("Pedir");
+        btnVerDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnVerDescripcionActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton2);
+        jPanel4.add(btnVerDescripcion);
 
         add(jPanel4, java.awt.BorderLayout.PAGE_END);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnVerDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDescripcionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnVerDescripcionActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnOrdenar;
+    private javax.swing.JButton btnVerDescripcion;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblPrecio;
+    private javax.swing.JPanel pnlImagen;
     // End of variables declaration//GEN-END:variables
 }
