@@ -1,13 +1,26 @@
 package com.edc.restaurant.views;
 
+import com.edc.restaurant.models.Product;
 import com.edc.restaurant.tools.FondoImagen;
+import java.awt.BorderLayout;
 
 
 public class ProductView extends javax.swing.JPanel {
 
+    private Product product;
+    
     public ProductView() {
         initComponents();
-
+    }
+    
+    public ProductView(Product product) {
+        this.product = product;
+        initComponents();
+        
+        pnlImage = new FondoImagen(product.getIcon());
+        add(pnlImage, BorderLayout.CENTER);
+        add(pnlNombre, BorderLayout.NORTH);
+pnlImage.repaint();
     }
 
     @SuppressWarnings("unchecked")
@@ -15,31 +28,32 @@ public class ProductView extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        pnlNombre = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
         lblPrecio = new javax.swing.JLabel();
-        pnlImagen = new FondoImagen("imagen_1.jpg");
+        pnlImage = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         btnOrdenar = new javax.swing.JButton();
         btnVerDescripcion = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
+        setMinimumSize(new java.awt.Dimension(150, 86));
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(153, 255, 153));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel3.setLayout(new java.awt.BorderLayout());
+        pnlNombre.setBackground(new java.awt.Color(255, 255, 255));
+        pnlNombre.setForeground(new java.awt.Color(0, 0, 0));
+        pnlNombre.setLayout(new java.awt.BorderLayout());
 
         lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(0, 0, 0));
         lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombre.setText("Nombre");
-        jPanel3.add(lblNombre, java.awt.BorderLayout.CENTER);
+        pnlNombre.add(lblNombre, java.awt.BorderLayout.CENTER);
 
-        jPanel1.add(jPanel3, java.awt.BorderLayout.PAGE_START);
+        jPanel1.add(pnlNombre, java.awt.BorderLayout.PAGE_START);
 
         lblPrecio.setBackground(new java.awt.Color(153, 255, 153));
         lblPrecio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -48,12 +62,10 @@ public class ProductView extends javax.swing.JPanel {
         lblPrecio.setText("$ Precio del producto $");
         jPanel1.add(lblPrecio, java.awt.BorderLayout.PAGE_END);
 
-        pnlImagen.setBackground(new java.awt.Color(255, 255, 255));
-        pnlImagen.setMaximumSize(new java.awt.Dimension(150, 86));
-        pnlImagen.setMinimumSize(new java.awt.Dimension(150, 86));
-        pnlImagen.setPreferredSize(new java.awt.Dimension(150, 86));
-        pnlImagen.setLayout(new java.awt.BorderLayout());
-        jPanel1.add(pnlImagen, java.awt.BorderLayout.CENTER);
+        pnlImage.setMaximumSize(new java.awt.Dimension(150, 86));
+        pnlImage.setMinimumSize(new java.awt.Dimension(150, 86));
+        pnlImage.setPreferredSize(new java.awt.Dimension(150, 86));
+        jPanel1.add(pnlImage, java.awt.BorderLayout.CENTER);
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -89,10 +101,10 @@ public class ProductView extends javax.swing.JPanel {
     private javax.swing.JButton btnOrdenar;
     private javax.swing.JButton btnVerDescripcion;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPrecio;
-    private javax.swing.JPanel pnlImagen;
+    private javax.swing.JPanel pnlImage;
+    private javax.swing.JPanel pnlNombre;
     // End of variables declaration//GEN-END:variables
 }
