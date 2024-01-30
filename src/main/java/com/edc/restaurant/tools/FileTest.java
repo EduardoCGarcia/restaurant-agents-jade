@@ -10,63 +10,75 @@ public class FileTest {
     public static void main(String[] args) {
         // Crear productos
         Product hamburguesaClasica = new Product("Hamburguesa Clásica",
+                "Clásica",
                 new BigDecimal("8.99"),
                 "Carne de res, lechuga, tomate, cebolla, queso cheddar y salsa especial.",
                 "hamburguesa_clasica.jpg");
 
         Product hamburguesaBBQBacon = new Product("Hamburguesa BBQ Bacon",
+                "BBQ Bacon",
                 new BigDecimal("10.99"),
                 "Carne de res, queso suizo, bacon crujiente, cebolla caramelizada y salsa barbacoa.",
                 "hamburguesa_bbq_bacon.jpg");
 
         Product hamburguesaVegetariana = new Product("Hamburguesa Vegetariana",
+                "Vegetariana",
                 new BigDecimal("9.99"),
                 "Hamburguesa de garbanzos, lechuga, tomate, aguacate, queso feta y mayonesa de ajo.",
                 "hamburguesa_vegetariana.jpg");
 
         Product hamburguesaPicanteMexicana = new Product("Hamburguesa Picante Mexicana",
+                "Mexicana",
                 new BigDecimal("11.49"),
                 "Carne de res, jalapeños, queso pepper jack, guacamole, lechuga y salsa picante.",
                 "hamburguesa_picante_mexicana.jpg");
 
         Product hamburguesaPolloTeriyaki = new Product("Hamburguesa de Pollo Teriyaki",
+                "Pollo Teriyaki",
                 new BigDecimal("9.99"),
                 "Pechuga de pollo a la parrilla, piña, queso provolone, cebolla morada y salsa teriyaki.",
                 "hamburguesa_pollo_teriyaki.jpg");
 
         Product hamburguesaDobleQueso = new Product("Hamburguesa Doble Queso",
+                "Doble Queso",
                 new BigDecimal("12.99"),
                 "Doble carne de res, doble queso cheddar, lechuga, tomate y mayonesa.",
                 "hamburguesa_doble_queso.jpg");
 
         // Acompañamientos
         Product papasFritas = new Product("Papas Fritas Tradicionales",
+                "Papas Fritas",
                 new BigDecimal("3.49"),
                 "Papas fritas crujientes.",
                 "papas_fritas_tradicionales.jpg");
 
         Product arosCebolla = new Product("Aros de Cebolla Crujientes",
+                "Aros de Cebolla",
                 new BigDecimal("4.99"),
                 "Aros de cebolla rebozados y fritos hasta obtener una textura crujiente.",
                 "aros_de_cebolla.jpg");
 
         Product ensaladaAguacateTomate = new Product("Ensalada de Aguacate y Tomate",
+                "Ensalada",
                 new BigDecimal("5.99"),
                 "Ensalada fresca con aguacate, tomate y aderezo ligero.",
                 "ensalada_aguacate_tomate.jpg");
 
         // Bebidas
         Product refrescosVariados = new Product("Refrescos Variados (500 ml)",
+                "Refresco",
                 new BigDecimal("1.99"),
                 "Refrescos en diferentes sabores.",
                 "refrescos_varios.jpg");
 
         Product batidosHeladoChocolate = new Product("Batido de Helado (Chocolate)",
+                "Batido de Chocolate",
                 new BigDecimal("4.49"),
                 "Batidos cremosos de helado de chocolate.",
                 "batido_helado_chocolate.jpg");
         
         Product batidosHeladoVainilla = new Product("Batido de Helado (Vainilla)",
+                "Batido de Vainilla",
                 new BigDecimal("4.49"),
                 "Batidos cremosos de helado de Vainilla.",
                 "batido_helado_vainilla.jpg");

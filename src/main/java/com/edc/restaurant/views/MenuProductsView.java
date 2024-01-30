@@ -43,7 +43,8 @@ public class MenuProductsView extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(600, 450));
         setLayout(new java.awt.BorderLayout());
 
-        pnlProducts.setMinimumSize(new java.awt.Dimension(600, 450));
+        pnlProducts.setMinimumSize(new java.awt.Dimension(1000, 750));
+        pnlProducts.setPreferredSize(new java.awt.Dimension(1000, 750));
         pnlProducts.setLayout(new java.awt.GridLayout(3, 4));
         add(pnlProducts, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents

@@ -4,6 +4,7 @@ com\edc\restaurant\views\MenuProductsView.class
 com\edc\restaurant\data\DataImplements.class
 com\edc\restaurant\tools\FondoImagen.class
 com\edc\restaurant\views\main$1.class
+com\edc\restaurant\views\CamareroView.class
 com\edc\restaurant\views\ProductView.class
 com\edc\restaurant\views\ProductView$1.class
 com\edc\restaurant\views\main.class

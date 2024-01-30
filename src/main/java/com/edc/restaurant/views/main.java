@@ -11,14 +11,14 @@ public class main extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlMenuContainer = new javax.swing.JPanel();
-        menuProductsView1 = new com.edc.restaurant.views.MenuProductsView();
+        camareroView2 = new com.edc.restaurant.views.CamareroView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(600, 450));
-        setPreferredSize(new java.awt.Dimension(600, 450));
+        setMinimumSize(new java.awt.Dimension(1000, 750));
+        setPreferredSize(new java.awt.Dimension(1000, 750));
 
         pnlMenuContainer.setLayout(new java.awt.BorderLayout());
-        pnlMenuContainer.add(menuProductsView1, java.awt.BorderLayout.CENTER);
+        pnlMenuContainer.add(camareroView2, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(pnlMenuContainer, java.awt.BorderLayout.CENTER);
 
@@ -58,7 +58,7 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.edc.restaurant.views.MenuProductsView menuProductsView1;
+    private com.edc.restaurant.views.CamareroView camareroView2;
     private javax.swing.JPanel pnlMenuContainer;
     // End of variables declaration//GEN-END:variables
 }

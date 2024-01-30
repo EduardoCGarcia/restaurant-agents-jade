@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 public class MiAgente extends Agent {
 
     protected void setup() {
-        Product p = new Product("Ham", BigDecimal.valueOf(8.99), "kfbsjhdfbbhksbdjkh","fsjdb");
+        Product p = new Product("Ham","", BigDecimal.valueOf(8.99), "kfbsjhdfbbhksbdjkh","fsjdb");
         JOptionPane.showMessageDialog(null, p.toString());
     }
 
