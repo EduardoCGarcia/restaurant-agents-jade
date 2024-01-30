@@ -1,23 +1,28 @@
 package com.edc.restaurant.views;
 
+import com.edc.restaurant.data.DataImplements;
+import com.edc.restaurant.data.IData;
 import com.edc.restaurant.models.Product;
 import java.awt.GridLayout;
-import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class MenuProductsView extends javax.swing.JPanel {
 
+    private ArrayList<Product> products;
+    private IData data;
+
     public MenuProductsView() {
+        data = new DataImplements();
+        this.products = data.readData("productos.dat");
+        
         initComponents();
-        this.loadProducts();
+        
+        this.createProductViewComponents();
     }
 
-    public void loadProducts() {
-        
-        this.pnlProducts.setLayout(new GridLayout(3, 3));
-        
-        for (int i = 0; i < 10; i++) {
-            ProductView productView = new ProductView(new Product("Nom", BigDecimal.ZERO, "desc", "imagen_1.jpg"));
-            this.pnlProducts.add(productView);
+    public void createProductViewComponents() {
+        for (Product product : products) {
+            this.pnlProducts.add(new ProductView(product));
         }
     }
 

@@ -1,5 +1,7 @@
+com\edc\restaurant\data\IData.class
 com\edc\restaurant\tools\ImageFrame.class
 com\edc\restaurant\views\MenuProductsView.class
+com\edc\restaurant\data\DataImplements.class
 com\edc\restaurant\tools\FondoImagen.class
 com\edc\restaurant\views\main$1.class
 com\edc\restaurant\views\ProductView.class

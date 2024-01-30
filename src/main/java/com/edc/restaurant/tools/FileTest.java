@@ -42,29 +42,34 @@ public class FileTest {
         // Acompañamientos
         Product papasFritas = new Product("Papas Fritas Tradicionales",
                 new BigDecimal("3.49"),
-                "",
-                "Papas fritas crujientes.");
+                "Papas fritas crujientes.",
+                "papas_fritas_tradicionales.jpg");
 
         Product arosCebolla = new Product("Aros de Cebolla Crujientes",
                 new BigDecimal("4.99"),
-                "",
-                "Aros de cebolla rebozados y fritos hasta obtener una textura crujiente.");
+                "Aros de cebolla rebozados y fritos hasta obtener una textura crujiente.",
+                "aros_de_cebolla.jpg");
 
         Product ensaladaAguacateTomate = new Product("Ensalada de Aguacate y Tomate",
                 new BigDecimal("5.99"),
-                "",
-                "Ensalada fresca con aguacate, tomate y aderezo ligero.");
+                "Ensalada fresca con aguacate, tomate y aderezo ligero.",
+                "ensalada_aguacate_tomate.jpg");
 
         // Bebidas
         Product refrescosVariados = new Product("Refrescos Variados (500 ml)",
                 new BigDecimal("1.99"),
-                "",
-                "Refrescos en diferentes sabores.");
+                "Refrescos en diferentes sabores.",
+                "refrescos_varios.jpg");
 
-        Product batidosHelado = new Product("Batidos de Helado (Vainilla, Chocolate, Fresa)",
+        Product batidosHeladoChocolate = new Product("Batido de Helado (Chocolate)",
                 new BigDecimal("4.49"),
-                "",
-                "Batidos cremosos de helado en vainilla, chocolate o fresa.");
+                "Batidos cremosos de helado de chocolate.",
+                "batido_helado_chocolate.jpg");
+        
+        Product batidosHeladoVainilla = new Product("Batido de Helado (Vainilla)",
+                new BigDecimal("4.49"),
+                "Batidos cremosos de helado de Vainilla.",
+                "batido_helado_vainilla.jpg");
 
         // Crear lista de productos
         ArrayList<Product> productos = new ArrayList<>();
@@ -78,7 +83,8 @@ public class FileTest {
         productos.add(arosCebolla);
         productos.add(ensaladaAguacateTomate);
         productos.add(refrescosVariados);
-        productos.add(batidosHelado);
+        productos.add(batidosHeladoChocolate);
+        productos.add(batidosHeladoVainilla);
 
         // Crear y usar el serializador/deserializador
         ObjectArrayListSerializerDeserializer<Product> serializerDeserializer =

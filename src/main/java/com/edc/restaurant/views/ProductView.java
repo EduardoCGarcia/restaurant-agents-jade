@@ -4,23 +4,22 @@ import com.edc.restaurant.models.Product;
 import com.edc.restaurant.tools.FondoImagen;
 import java.awt.BorderLayout;
 
-
 public class ProductView extends javax.swing.JPanel {
 
     private Product product;
-    
+
     public ProductView() {
         initComponents();
     }
-    
+
     public ProductView(Product product) {
         this.product = product;
         initComponents();
-        
+
         pnlImage = new FondoImagen(product.getIcon());
         add(pnlImage, BorderLayout.CENTER);
         add(pnlNombre, BorderLayout.NORTH);
-pnlImage.repaint();
+        pnlImage.repaint();
     }
 
     @SuppressWarnings("unchecked")
@@ -94,7 +93,6 @@ pnlImage.repaint();
     private void btnVerDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDescripcionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVerDescripcionActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
