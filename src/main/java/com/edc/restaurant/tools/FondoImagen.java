@@ -9,6 +9,7 @@ public class FondoImagen extends JPanel {
 
     private Image imagen;
     private String nombreImagen;
+    private String rutaImagen = "C:/restaurant_agents_files/images/";
 
     public FondoImagen() {
     }
@@ -34,8 +35,7 @@ public class FondoImagen extends JPanel {
 
     private void cargarImagen() {
         try {
-            ClassLoader classLoader = getClass().getClassLoader();
-            imagen = new ImageIcon(classLoader.getResource("images/" + nombreImagen)).getImage();
+            imagen = new ImageIcon(rutaImagen + nombreImagen).getImage();
         } catch (Exception e) {
             System.out.println("Error al cargar la imagen: " + e.getMessage());
         }

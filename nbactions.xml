@@ -12,8 +12,8 @@
             <properties>
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.appArgs>-agents Agente1:com.edc.restaurant.agents.MiAgente</exec.appArgs>
-                <exec.mainClass>jade.Boot</exec.mainClass>
+                <exec.appArgs></exec.appArgs>
+                <exec.mainClass>com.edc.restaurant.views.main</exec.mainClass>
                 <exec.executable>java</exec.executable>
             </properties>
         </action>
@@ -29,8 +29,8 @@
             <properties>
                 <exec.vmArgs>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.appArgs>-agents Agente1:com.edc.restaurant.agents.MiAgente</exec.appArgs>
-                <exec.mainClass>jade.Boot</exec.mainClass>
+                <exec.appArgs></exec.appArgs>
+                <exec.mainClass>com.edc.restaurant.views.main</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
             </properties>
@@ -47,9 +47,9 @@
             <properties>
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.mainClass>jade.Boot</exec.mainClass>
+                <exec.mainClass>com.edc.restaurant.views.main</exec.mainClass>
                 <exec.executable>java</exec.executable>
-                <exec.appArgs>-agents Agente1:com.edc.restaurant.agents.MiAgente</exec.appArgs>
+                <exec.appArgs></exec.appArgs>
             </properties>
         </action>
     </actions>
