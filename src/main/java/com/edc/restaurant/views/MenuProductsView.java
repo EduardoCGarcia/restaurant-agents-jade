@@ -14,16 +14,19 @@ public class MenuProductsView extends javax.swing.JPanel {
     public MenuProductsView() {
         data = new DataImplements();
         this.products = data.readData("productos.dat");
-        
+
         initComponents();
-        
+
         this.createProductViewComponents();
     }
 
     public void createProductViewComponents() {
+        if (products == null) return;
+        
         for (Product product : products) {
             this.pnlProducts.add(new ProductView(product));
         }
+
     }
 
     /**
