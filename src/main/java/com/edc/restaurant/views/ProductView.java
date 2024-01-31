@@ -85,6 +85,11 @@ public class ProductView extends javax.swing.JPanel {
         btnOrdenar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnOrdenar.setForeground(new java.awt.Color(0, 51, 51));
         btnOrdenar.setText("Ver");
+        btnOrdenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdenarActionPerformed(evt);
+            }
+        });
         pnlBotones.add(btnOrdenar);
 
         btnVerDescripcion.setBackground(new java.awt.Color(51, 255, 51));
@@ -104,6 +109,10 @@ public class ProductView extends javax.swing.JPanel {
     private void btnVerDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDescripcionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVerDescripcionActionPerformed
+
+    private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOrdenarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

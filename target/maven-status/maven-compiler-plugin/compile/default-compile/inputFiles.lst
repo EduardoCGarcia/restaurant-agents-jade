@@ -1,5 +1,6 @@
 C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\java\com\edc\restaurant\data\IData.java
 C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\java\com\edc\restaurant\views\main.java
+C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\java\com\edc\restaurant\tools\Observer.java
 C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\java\com\edc\restaurant\agents\MiAgente.java
 C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\java\com\edc\restaurant\views\OrderSlipTable.java
 C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\java\com\edc\restaurant\data\DataImplements.java
@@ -7,7 +8,9 @@ C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\j
 C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\java\com\edc\restaurant\tools\FondoImagen.java
 C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\java\com\edc\restaurant\views\ProductView.java
 C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\java\com\edc\restaurant\views\TestTable.java
+C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\java\com\edc\restaurant\tools\Observable.java
 C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\java\com\edc\restaurant\views\MenuProductsView.java
+C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\java\com\edc\restaurant\views\InfoProductView.java
 C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\java\com\edc\restaurant\tools\ImageFrame.java
 C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\java\com\edc\restaurant\tools\ObjectArrayListSerializerDeserializer.java
 C:\Users\echav\OneDrive\Documentos\NetBeansProjects\Restaurant-Agents\src\main\java\com\edc\restaurant\views\CamareroView.java
