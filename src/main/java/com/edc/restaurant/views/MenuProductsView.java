@@ -3,15 +3,20 @@ package com.edc.restaurant.views;
 import com.edc.restaurant.data.DataImplements;
 import com.edc.restaurant.data.IData;
 import com.edc.restaurant.models.Product;
-import java.awt.GridLayout;
+import com.edc.restaurant.tools.Observable;
+import com.edc.restaurant.tools.Observer;
 import java.util.ArrayList;
 
-public class MenuProductsView extends javax.swing.JPanel {
+public class MenuProductsView extends javax.swing.JPanel implements Observable, Observer {
+
+    private ArrayList<Observer> observers;
 
     private ArrayList<Product> products;
     private IData data;
 
     public MenuProductsView() {
+        observers = new ArrayList<>();
+
         data = new DataImplements();
         this.products = data.readData("productos.dat");
 
@@ -21,10 +26,14 @@ public class MenuProductsView extends javax.swing.JPanel {
     }
 
     public void createProductViewComponents() {
-        if (products == null) return;
-        
+        if (products == null) {
+            return;
+        }
+
         for (Product product : products) {
-            this.pnlProducts.add(new ProductView(product));
+            ProductView productView = new ProductView(product);
+            productView.addObservable(this);
+            this.pnlProducts.add(productView);
         }
 
     }
@@ -53,4 +62,46 @@ public class MenuProductsView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel pnlProducts;
     // End of variables declaration//GEN-END:variables
+    // Inicio Observer
+    @Override
+    public void update(Object args) {
+        System.out.println("LLego al menu");
+        if (args instanceof Product) {
+            Product product = (Product) args;
+            notifyObservables(args);
+        }
+    }
+
+    @Override
+    public void update() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    // Fin Observer
+
+    // Inicio Observable
+    @Override
+    public void addObservable(Observer o) {
+        this.observers.add(o);
+    }
+
+    @Override
+    public void removeObservable(Observer o) {
+        this.observers.remove(o);
+    }
+
+    @Override
+    public void notifyObservables() {
+        for (Observer observer : observers) {
+            observer.update();
+        }
+    }
+
+    @Override
+    public void notifyObservables(Object arg) {
+        for (Observer observer : observers) {
+            observer.update(arg);
+        }
+    }
+    // Fin Observable
+
 }

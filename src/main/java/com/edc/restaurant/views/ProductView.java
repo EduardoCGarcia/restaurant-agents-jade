@@ -2,17 +2,26 @@ package com.edc.restaurant.views;
 
 import com.edc.restaurant.models.Product;
 import com.edc.restaurant.tools.FondoImagen;
+import com.edc.restaurant.tools.Observable;
+import com.edc.restaurant.tools.Observer;
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 
-public class ProductView extends javax.swing.JPanel {
+public class ProductView extends javax.swing.JPanel implements Observable {
+
+    private ArrayList<Observer> observers;
 
     private Product product;
 
     public ProductView() {
+        observers = new ArrayList<>();
+
         initComponents();
     }
 
     public ProductView(Product product) {
+        observers = new ArrayList<>();
+
         this.product = product;
         initComponents();
 
@@ -35,8 +44,8 @@ public class ProductView extends javax.swing.JPanel {
         lblPrecio = new javax.swing.JLabel();
         pnlImage = new javax.swing.JPanel();
         pnlBotones = new javax.swing.JPanel();
-        btnOrdenar = new javax.swing.JButton();
         btnVerDescripcion = new javax.swing.JButton();
+        btnOrdenar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -81,21 +90,10 @@ public class ProductView extends javax.swing.JPanel {
 
         pnlBotones.setLayout(new java.awt.GridLayout(1, 0));
 
-        btnOrdenar.setBackground(new java.awt.Color(0, 204, 255));
-        btnOrdenar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnOrdenar.setForeground(new java.awt.Color(0, 51, 51));
-        btnOrdenar.setText("Ver");
-        btnOrdenar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrdenarActionPerformed(evt);
-            }
-        });
-        pnlBotones.add(btnOrdenar);
-
-        btnVerDescripcion.setBackground(new java.awt.Color(51, 255, 51));
+        btnVerDescripcion.setBackground(new java.awt.Color(0, 204, 255));
         btnVerDescripcion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnVerDescripcion.setForeground(new java.awt.Color(0, 51, 51));
-        btnVerDescripcion.setText("Pedir");
+        btnVerDescripcion.setText("Ver");
         btnVerDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerDescripcionActionPerformed(evt);
@@ -103,16 +101,26 @@ public class ProductView extends javax.swing.JPanel {
         });
         pnlBotones.add(btnVerDescripcion);
 
+        btnOrdenar.setBackground(new java.awt.Color(51, 255, 51));
+        btnOrdenar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnOrdenar.setForeground(new java.awt.Color(0, 51, 51));
+        btnOrdenar.setText("Pedir");
+        btnOrdenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdenarActionPerformed(evt);
+            }
+        });
+        pnlBotones.add(btnOrdenar);
+
         add(pnlBotones, java.awt.BorderLayout.PAGE_END);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVerDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDescripcionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVerDescripcionActionPerformed
-
     private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnOrdenarActionPerformed
+
+    private void btnVerDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDescripcionActionPerformed
+        notifyObservables(this.product);
+    }//GEN-LAST:event_btnVerDescripcionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -126,4 +134,28 @@ public class ProductView extends javax.swing.JPanel {
     private javax.swing.JPanel pnlNombre;
     private javax.swing.JPanel pnlPrecio;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void addObservable(Observer o) {
+        this.observers.add(o);
+    }
+
+    @Override
+    public void removeObservable(Observer o) {
+        this.observers.remove(o);
+    }
+
+    @Override
+    public void notifyObservables() {
+        for (Observer observer : observers) {
+            observer.update();
+        }
+    }
+
+    @Override
+    public void notifyObservables(Object arg) {
+        for (Observer observer : observers) {
+            observer.update(arg);
+        }
+    }
 }

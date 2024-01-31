@@ -1,71 +1,81 @@
 package com.edc.restaurant.views;
 
+import com.edc.restaurant.models.Product;
+import com.edc.restaurant.tools.FondoImagen;
+import java.awt.BorderLayout;
+
 public class InfoProductView extends javax.swing.JDialog {
+    private Product product;
 
     public InfoProductView(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+    
+    public InfoProductView(java.awt.Frame parent, boolean modal, Product product) {
+        super(parent, modal);
+        this.product = product;
+        initComponents();
+        this.lblNombre.setText(this.product.getNombre());
+        this.lblPrecio.setText("$ " + this.product.getPrecio() + " UDS");
+        this.txtPaneDescripcion.setText(this.product.getDescripcion());
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlInfoContainer = new javax.swing.JPanel();
-        pnlLabelNombre = new javax.swing.JPanel();
+        pnlContainer = new javax.swing.JPanel();
+        pnlImage = (this.product != null) ?
+        new FondoImagen(this.product.getIcon()) :
+        new javax.swing.JPanel();
+        pnlInfo = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
-        pnlLabelPrecio = new javax.swing.JPanel();
         lblPrecio = new javax.swing.JLabel();
-        pnlTextArea = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txaProductDescription = new javax.swing.JTextArea();
-        pnlProductImage = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtPaneDescripcion = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        pnlInfoContainer.setLayout(new java.awt.GridLayout(3, 1));
+        pnlContainer.setMinimumSize(new java.awt.Dimension(750, 250));
+        pnlContainer.setPreferredSize(new java.awt.Dimension(750, 250));
+        pnlContainer.setLayout(new java.awt.BorderLayout());
 
-        pnlLabelNombre.setLayout(new java.awt.BorderLayout());
-
-        lblNombre.setText("jLabel1");
-        pnlLabelNombre.add(lblNombre, java.awt.BorderLayout.CENTER);
-
-        pnlInfoContainer.add(pnlLabelNombre);
-
-        pnlLabelPrecio.setLayout(new java.awt.BorderLayout());
-
-        lblPrecio.setText("jLabel2");
-        pnlLabelPrecio.add(lblPrecio, java.awt.BorderLayout.CENTER);
-
-        pnlInfoContainer.add(pnlLabelPrecio);
-
-        pnlTextArea.setLayout(new java.awt.BorderLayout());
-
-        txaProductDescription.setColumns(20);
-        txaProductDescription.setRows(5);
-        jScrollPane1.setViewportView(txaProductDescription);
-
-        pnlTextArea.add(jScrollPane1, java.awt.BorderLayout.CENTER);
-
-        pnlInfoContainer.add(pnlTextArea);
-
-        getContentPane().add(pnlInfoContainer, java.awt.BorderLayout.CENTER);
-
-        pnlProductImage.setMinimumSize(new java.awt.Dimension(250, 250));
-        pnlProductImage.setPreferredSize(new java.awt.Dimension(250, 250));
-
-        javax.swing.GroupLayout pnlProductImageLayout = new javax.swing.GroupLayout(pnlProductImage);
-        pnlProductImage.setLayout(pnlProductImageLayout);
-        pnlProductImageLayout.setHorizontalGroup(
-            pnlProductImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlImageLayout = new javax.swing.GroupLayout(pnlImage);
+        pnlImage.setLayout(pnlImageLayout);
+        pnlImageLayout.setHorizontalGroup(
+            pnlImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 250, Short.MAX_VALUE)
         );
-        pnlProductImageLayout.setVerticalGroup(
-            pnlProductImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 262, Short.MAX_VALUE)
+        pnlImageLayout.setVerticalGroup(
+            pnlImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
         );
 
-        getContentPane().add(pnlProductImage, java.awt.BorderLayout.LINE_END);
+        pnlContainer.add(pnlImage, java.awt.BorderLayout.LINE_END);
+
+        pnlInfo.setBackground(new java.awt.Color(255, 255, 255));
+        pnlInfo.setLayout(new java.awt.GridLayout(3, 1));
+
+        lblNombre.setFont(new java.awt.Font("FiraCode Nerd Font SemBd", 1, 24)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(0, 0, 102));
+        lblNombre.setText("Nombre del producto seleccionado");
+        pnlInfo.add(lblNombre);
+
+        lblPrecio.setFont(new java.awt.Font("FiraCode Nerd Font SemBd", 3, 36)); // NOI18N
+        lblPrecio.setForeground(new java.awt.Color(0, 102, 0));
+        lblPrecio.setText("$ Precio");
+        pnlInfo.add(lblPrecio);
+
+        txtPaneDescripcion.setEditable(false);
+        txtPaneDescripcion.setFont(new java.awt.Font("FiraCode Nerd Font Mono SemBd", 0, 18)); // NOI18N
+        jScrollPane2.setViewportView(txtPaneDescripcion);
+
+        pnlInfo.add(jScrollPane2);
+
+        pnlContainer.add(pnlInfo, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(pnlContainer, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -110,14 +120,12 @@ public class InfoProductView extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPrecio;
-    private javax.swing.JPanel pnlInfoContainer;
-    private javax.swing.JPanel pnlLabelNombre;
-    private javax.swing.JPanel pnlLabelPrecio;
-    private javax.swing.JPanel pnlProductImage;
-    private javax.swing.JPanel pnlTextArea;
-    private javax.swing.JTextArea txaProductDescription;
+    private javax.swing.JPanel pnlContainer;
+    private javax.swing.JPanel pnlImage;
+    private javax.swing.JPanel pnlInfo;
+    private javax.swing.JTextPane txtPaneDescripcion;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,14 +1,24 @@
 package com.edc.restaurant.views;
 
+import com.edc.restaurant.models.Product;
 import com.edc.restaurant.tools.FondoImagen;
+import com.edc.restaurant.tools.Observable;
+import com.edc.restaurant.tools.Observer;
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 
-public class CamareroView extends javax.swing.JPanel {
+public class CamareroMenuView extends javax.swing.JPanel implements Observable, Observer {
 
-    public CamareroView() {
+    private ArrayList<Observer> observers;
+
+    public CamareroMenuView() {
+        observers = new ArrayList<>();
+
         initComponents();
         this.pnlCamareroImage = new FondoImagen("camarero_agente.jpg");
         this.pnlCamareroContainer.add(pnlCamareroImage, BorderLayout.CENTER);
+        
+        this.menuProductsView1.addObservable(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -65,4 +75,44 @@ public class CamareroView extends javax.swing.JPanel {
     private javax.swing.JPanel pnlCamareroContainer;
     private javax.swing.JPanel pnlCamareroImage;
     // End of variables declaration//GEN-END:variables
+// Inicio Observer
+    @Override
+    public void update(Object args) {
+        if (args instanceof Product) {
+            Product product = (Product) args;
+            notifyObservables(args);
+        }
+    }
+
+    @Override
+    public void update() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    // Fin Observer
+
+    // Inicio Observable
+    @Override
+    public void addObservable(Observer o) {
+        this.observers.add(o);
+    }
+
+    @Override
+    public void removeObservable(Observer o) {
+        this.observers.remove(o);
+    }
+
+    @Override
+    public void notifyObservables() {
+        for (Observer observer : observers) {
+            observer.update();
+        }
+    }
+
+    @Override
+    public void notifyObservables(Object arg) {
+        for (Observer observer : observers) {
+            observer.update(arg);
+        }
+    }
+    // Fin Observable
 }

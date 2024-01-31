@@ -1,9 +1,14 @@
 package com.edc.restaurant.views;
 
-public class main extends javax.swing.JFrame {
+import com.edc.restaurant.models.Product;
+import com.edc.restaurant.tools.Observer;
+
+public class main extends javax.swing.JFrame implements Observer {
 
     public main() {
         initComponents();
+        
+        this.camareroView2.addObservable(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -11,7 +16,7 @@ public class main extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlMenuContainer = new javax.swing.JPanel();
-        camareroView2 = new com.edc.restaurant.views.CamareroView();
+        camareroView2 = new com.edc.restaurant.views.CamareroMenuView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 750));
@@ -58,7 +63,22 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.edc.restaurant.views.CamareroView camareroView2;
+    private com.edc.restaurant.views.CamareroMenuView camareroView2;
     private javax.swing.JPanel pnlMenuContainer;
     // End of variables declaration//GEN-END:variables
+// Inicio Observer
+    @Override
+    public void update(Object args) {
+        if (args instanceof Product) {
+            Product product = (Product) args;
+            InfoProductView infoProductView = new InfoProductView(this, true, product);
+            infoProductView.setVisible(true);
+        }
+    }
+
+    @Override
+    public void update() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    // Fin Observer
 }

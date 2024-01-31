@@ -3,8 +3,8 @@ com\edc\restaurant\tools\ImageFrame.class
 com\edc\restaurant\data\DataImplements.class
 com\edc\restaurant\tools\FondoImagen.class
 com\edc\restaurant\views\main$1.class
-com\edc\restaurant\views\CamareroView.class
 com\edc\restaurant\views\InfoProductView$1.class
+com\edc\restaurant\views\CamareroMenuView.class
 com\edc\restaurant\views\OrderSlipTable.class
 com\edc\restaurant\views\main.class
 com\edc\restaurant\tools\ObjectArrayListSerializerDeserializer.class
