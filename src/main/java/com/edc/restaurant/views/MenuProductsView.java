@@ -49,7 +49,7 @@ public class MenuProductsView extends javax.swing.JPanel implements Observable, 
 
         pnlProducts = new javax.swing.JPanel();
 
-        setPreferredSize(new java.awt.Dimension(600, 450));
+        setPreferredSize(new java.awt.Dimension(1000, 750));
         setLayout(new java.awt.BorderLayout());
 
         pnlProducts.setMinimumSize(new java.awt.Dimension(1000, 750));
@@ -65,7 +65,6 @@ public class MenuProductsView extends javax.swing.JPanel implements Observable, 
     // Inicio Observer
     @Override
     public void update(Object args) {
-        System.out.println("LLego al menu");
         if (args instanceof Product) {
             Product product = (Product) args;
             notifyObservables(args);

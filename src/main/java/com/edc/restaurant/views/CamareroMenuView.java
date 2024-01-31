@@ -5,6 +5,7 @@ import com.edc.restaurant.tools.FondoImagen;
 import com.edc.restaurant.tools.Observable;
 import com.edc.restaurant.tools.Observer;
 import java.awt.BorderLayout;
+import java.awt.GridBagLayout;
 import java.util.ArrayList;
 
 public class CamareroMenuView extends javax.swing.JPanel implements Observable, Observer {
@@ -15,10 +16,6 @@ public class CamareroMenuView extends javax.swing.JPanel implements Observable, 
         observers = new ArrayList<>();
 
         initComponents();
-        this.pnlCamareroImage = new FondoImagen("camarero_agente.jpg");
-        this.pnlCamareroContainer.add(pnlCamareroImage, BorderLayout.CENTER);
-        
-        this.menuProductsView1.addObservable(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -26,17 +23,15 @@ public class CamareroMenuView extends javax.swing.JPanel implements Observable, 
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        pnlCamareroContainer = new javax.swing.JPanel();
-        pnlCamareroImage = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        pnlCamareroImage = new FondoImagen("camarero_agente.jpg");
+        pnlTable = new javax.swing.JPanel();
         orderSlipTable1 = new com.edc.restaurant.views.OrderSlipTable();
-        menuProductsView1 = new com.edc.restaurant.views.MenuProductsView();
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setLayout(new java.awt.BorderLayout());
-
-        pnlCamareroContainer.setLayout(new java.awt.BorderLayout());
+        jPanel1.setMinimumSize(new java.awt.Dimension(350, 750));
+        jPanel1.setPreferredSize(new java.awt.Dimension(350, 750));
+        jPanel1.setLayout(new java.awt.GridLayout(2, 1));
 
         pnlCamareroImage.setMinimumSize(new java.awt.Dimension(350, 400));
 
@@ -51,17 +46,14 @@ public class CamareroMenuView extends javax.swing.JPanel implements Observable, 
             .addGap(0, 400, Short.MAX_VALUE)
         );
 
-        pnlCamareroContainer.add(pnlCamareroImage, java.awt.BorderLayout.CENTER);
+        jPanel1.add(pnlCamareroImage);
 
-        jPanel3.setMinimumSize(new java.awt.Dimension(350, 350));
-        jPanel3.setPreferredSize(new java.awt.Dimension(350, 350));
-        jPanel3.setLayout(new java.awt.BorderLayout());
-        jPanel3.add(orderSlipTable1, java.awt.BorderLayout.CENTER);
+        pnlTable.setMinimumSize(new java.awt.Dimension(350, 350));
+        pnlTable.setPreferredSize(new java.awt.Dimension(350, 350));
+        pnlTable.setLayout(new java.awt.BorderLayout());
+        pnlTable.add(orderSlipTable1, java.awt.BorderLayout.CENTER);
 
-        pnlCamareroContainer.add(jPanel3, java.awt.BorderLayout.PAGE_END);
-
-        jPanel1.add(pnlCamareroContainer, java.awt.BorderLayout.LINE_START);
-        jPanel1.add(menuProductsView1, java.awt.BorderLayout.CENTER);
+        jPanel1.add(pnlTable);
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -69,11 +61,9 @@ public class CamareroMenuView extends javax.swing.JPanel implements Observable, 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private com.edc.restaurant.views.MenuProductsView menuProductsView1;
     private com.edc.restaurant.views.OrderSlipTable orderSlipTable1;
-    private javax.swing.JPanel pnlCamareroContainer;
     private javax.swing.JPanel pnlCamareroImage;
+    private javax.swing.JPanel pnlTable;
     // End of variables declaration//GEN-END:variables
 // Inicio Observer
     @Override
