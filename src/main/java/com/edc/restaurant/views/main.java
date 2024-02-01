@@ -1,9 +1,15 @@
 package com.edc.restaurant.views;
 
-public class main extends javax.swing.JFrame {
+import com.edc.restaurant.models.Product;
+import com.edc.restaurant.tools.Observer;
+
+public class main extends javax.swing.JFrame implements Observer {
 
     public main() {
         initComponents();
+        
+        this.menuProductsView1.addObservable(this);
+        this.menuProductsView1.addObservable(this.camareroMenuView1);
     }
 
     @SuppressWarnings("unchecked")
@@ -12,13 +18,15 @@ public class main extends javax.swing.JFrame {
 
         pnlMenuContainer = new javax.swing.JPanel();
         menuProductsView1 = new com.edc.restaurant.views.MenuProductsView();
+        camareroMenuView1 = new com.edc.restaurant.views.CamareroMenuView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(600, 450));
-        setPreferredSize(new java.awt.Dimension(600, 450));
+        setMinimumSize(new java.awt.Dimension(1000, 750));
+        setPreferredSize(new java.awt.Dimension(1000, 750));
 
         pnlMenuContainer.setLayout(new java.awt.BorderLayout());
         pnlMenuContainer.add(menuProductsView1, java.awt.BorderLayout.CENTER);
+        pnlMenuContainer.add(camareroMenuView1, java.awt.BorderLayout.LINE_START);
 
         getContentPane().add(pnlMenuContainer, java.awt.BorderLayout.CENTER);
 
@@ -58,7 +66,23 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.edc.restaurant.views.CamareroMenuView camareroMenuView1;
     private com.edc.restaurant.views.MenuProductsView menuProductsView1;
     private javax.swing.JPanel pnlMenuContainer;
     // End of variables declaration//GEN-END:variables
+// Inicio Observer
+    @Override
+    public void update(Object args) {
+        if (args instanceof Product) {
+            Product product = (Product) args;
+            InfoProductView infoProductView = new InfoProductView(this, true, product);
+            infoProductView.setVisible(true);
+        }
+    }
+
+    @Override
+    public void update() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    // Fin Observer
 }
