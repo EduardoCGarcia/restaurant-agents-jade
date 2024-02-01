@@ -1,21 +1,22 @@
 package com.edc.restaurant.views;
 
-import com.edc.restaurant.models.Product;
 import com.edc.restaurant.tools.FondoImagen;
 import com.edc.restaurant.tools.Observable;
 import com.edc.restaurant.tools.Observer;
-import java.awt.BorderLayout;
-import java.awt.GridBagLayout;
 import java.util.ArrayList;
 
 public class CamareroMenuView extends javax.swing.JPanel implements Observable, Observer {
 
     private ArrayList<Observer> observers;
-
+    
+    
     public CamareroMenuView() {
         observers = new ArrayList<>();
+        
+        
 
         initComponents();
+        this.addObservable(orderSlipTable1);
     }
 
     @SuppressWarnings("unchecked")
@@ -68,10 +69,7 @@ public class CamareroMenuView extends javax.swing.JPanel implements Observable, 
 // Inicio Observer
     @Override
     public void update(Object args) {
-        if (args instanceof Product) {
-            Product product = (Product) args;
-            notifyObservables(args);
-        }
+        notifyObservables(args);
     }
 
     @Override
@@ -105,4 +103,6 @@ public class CamareroMenuView extends javax.swing.JPanel implements Observable, 
         }
     }
     // Fin Observable
+
+    
 }

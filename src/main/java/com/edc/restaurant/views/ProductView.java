@@ -1,6 +1,7 @@
 package com.edc.restaurant.views;
 
 import com.edc.restaurant.models.Product;
+import com.edc.restaurant.models.ProductoCantidad;
 import com.edc.restaurant.tools.FondoImagen;
 import com.edc.restaurant.tools.Observable;
 import com.edc.restaurant.tools.Observer;
@@ -116,6 +117,7 @@ public class ProductView extends javax.swing.JPanel implements Observable {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
+        notifyObservables(new ProductoCantidad(product, 1));
     }//GEN-LAST:event_btnOrdenarActionPerformed
 
     private void btnVerDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDescripcionActionPerformed

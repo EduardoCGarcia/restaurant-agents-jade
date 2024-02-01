@@ -9,6 +9,7 @@ public class main extends javax.swing.JFrame implements Observer {
         initComponents();
         
         this.menuProductsView1.addObservable(this);
+        this.menuProductsView1.addObservable(this.camareroMenuView1);
     }
 
     @SuppressWarnings("unchecked")
@@ -16,16 +17,16 @@ public class main extends javax.swing.JFrame implements Observer {
     private void initComponents() {
 
         pnlMenuContainer = new javax.swing.JPanel();
-        camareroMenuView1 = new com.edc.restaurant.views.CamareroMenuView();
         menuProductsView1 = new com.edc.restaurant.views.MenuProductsView();
+        camareroMenuView1 = new com.edc.restaurant.views.CamareroMenuView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 750));
         setPreferredSize(new java.awt.Dimension(1000, 750));
 
         pnlMenuContainer.setLayout(new java.awt.BorderLayout());
-        pnlMenuContainer.add(camareroMenuView1, java.awt.BorderLayout.LINE_START);
         pnlMenuContainer.add(menuProductsView1, java.awt.BorderLayout.CENTER);
+        pnlMenuContainer.add(camareroMenuView1, java.awt.BorderLayout.LINE_START);
 
         getContentPane().add(pnlMenuContainer, java.awt.BorderLayout.CENTER);
 

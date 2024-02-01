@@ -1,22 +1,25 @@
 package com.edc.restaurant.views;
 
 import com.edc.restaurant.models.Product;
+import com.edc.restaurant.models.ProductoCantidad;
+import com.edc.restaurant.tools.Observer;
+import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Set;
+import javax.swing.table.DefaultTableModel;
 
-public class OrderSlipTable extends javax.swing.JPanel {
+public class OrderSlipTable extends javax.swing.JPanel implements Observer {
 
-    private Set<Product> orderedProducts;
-    
+    private Set<ProductoCantidad> productosOrden;
+    private Set<Product> productos;
+
     public OrderSlipTable() {
+
+        productosOrden = new HashSet<>();
+        productos = new HashSet<>();
+
         initComponents();
     }
-    
-    public OrderSlipTable(Set<Product> orderedProducts) {
-        this. orderedProducts = orderedProducts;
-        initComponents();
-    }
-
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -86,4 +89,68 @@ public class OrderSlipTable extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Object args) {
+        if (args instanceof ProductoCantidad) {
+
+            ProductoCantidad productoCantidad = (ProductoCantidad) args;
+
+            if (productos.add(productoCantidad.getProducto())) {
+                productosOrden.add(productoCantidad);
+                addRowToTable(productoCantidad);
+
+            } else {
+                modifyExistingProduct(productosOrden, productoCantidad);
+                repaintTable();
+            }
+        }
+    }
+
+    @Override
+    public void update() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    //Inicio de metodos de clase
+    private static void modifyExistingProduct(Set<ProductoCantidad> productosCantidadSet, ProductoCantidad existingObject) {
+        // Obtener el objeto existente del conjunto
+        ProductoCantidad producto = productosCantidadSet.stream()
+                .filter(obj -> obj.getProducto().equals(existingObject.getProducto()))
+                .findFirst()
+                .orElse(null);
+
+        // Modificar el objeto existente (en este caso, cambiar el id)
+        if (producto != null) {
+            producto.setCantidad(producto.getCantidad() + 1);
+            System.out.println("Objeto modificado: " + producto);
+        }
+    }
+
+    private void addRowToTable(ProductoCantidad productoCantidad) {
+        DefaultTableModel modelo = (DefaultTableModel) this.jTable2.getModel();
+        BigDecimal subTotal = productoCantidad.getProducto().getPrecio()
+                .multiply(BigDecimal.valueOf(productoCantidad.getCantidad()));
+
+        Object[] rowData = {productoCantidad.getProducto().getNombre(), productoCantidad.getProducto().getPrecio(), productoCantidad.getCantidad(), subTotal};
+
+        modelo.addRow(rowData);
+        this.jTable2.repaint();
+    }
+
+    public void repaintTable() {
+        DefaultTableModel modelo = (DefaultTableModel) this.jTable2.getModel();
+        modelo.setRowCount(0); // Limpiar filas existentes
+
+        for (ProductoCantidad productoCantidad : productosOrden) {
+            BigDecimal subTotal = productoCantidad.getProducto().getPrecio()
+                    .multiply(BigDecimal.valueOf(productoCantidad.getCantidad()));
+
+            Object[] rowData = {productoCantidad.getProducto().getNombre(), productoCantidad.getProducto().getPrecio(), productoCantidad.getCantidad(), subTotal};
+
+            modelo.addRow(rowData);
+        }
+        this.jTable2.repaint();
+    }
+    //Fin de metodos de clase
 }

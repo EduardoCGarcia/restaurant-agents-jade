@@ -65,10 +65,7 @@ public class MenuProductsView extends javax.swing.JPanel implements Observable, 
     // Inicio Observer
     @Override
     public void update(Object args) {
-        if (args instanceof Product) {
-            Product product = (Product) args;
-            notifyObservables(args);
-        }
+        notifyObservables(args);
     }
 
     @Override
