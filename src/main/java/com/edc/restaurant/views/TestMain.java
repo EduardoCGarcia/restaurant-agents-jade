@@ -3,9 +3,9 @@ package com.edc.restaurant.views;
 import com.edc.restaurant.models.Product;
 import com.edc.restaurant.tools.Observer;
 
-public class main extends javax.swing.JFrame implements Observer {
+public class TestMain extends javax.swing.JFrame implements Observer {
 
-    public main() {
+    public TestMain() {
         initComponents();
         
         this.menuProductsView1.addObservable(this);
@@ -22,7 +22,6 @@ public class main extends javax.swing.JFrame implements Observer {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 750));
-        setPreferredSize(new java.awt.Dimension(1000, 750));
 
         pnlMenuContainer.setLayout(new java.awt.BorderLayout());
         pnlMenuContainer.add(menuProductsView1, java.awt.BorderLayout.CENTER);
@@ -47,20 +46,21 @@ public class main extends javax.swing.JFrame implements Observer {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new main().setVisible(true);
+                new TestMain().setVisible(true);
             }
         });
     }

@@ -6,7 +6,7 @@ import com.edc.restaurant.tools.ObjectArrayListSerializerDeserializer;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public class FileTest {
+public class TestFile {
     public static void main(String[] args) {
         // Crear productos
         Product hamburguesaClasica = new Product("Hamburguesa Clásica",

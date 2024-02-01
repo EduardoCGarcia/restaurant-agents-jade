@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-public class ImageFrame extends JFrame {
+public class TestImagePanel extends JFrame {
 public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Prueba FondoImagen");

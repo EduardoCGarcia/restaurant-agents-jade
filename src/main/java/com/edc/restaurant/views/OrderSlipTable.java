@@ -61,15 +61,25 @@ public class OrderSlipTable extends javax.swing.JPanel implements Observer {
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jPanel2.setLayout(new java.awt.GridLayout());
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton5.setBackground(new java.awt.Color(255, 0, 51));
         jButton5.setText("Cancelar Orden");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton5);
 
         jButton6.setBackground(new java.awt.Color(102, 255, 102));
         jButton6.setForeground(new java.awt.Color(0, 51, 51));
         jButton6.setText("Terminar Orden");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton6);
 
         add(jPanel2, java.awt.BorderLayout.PAGE_END);
@@ -78,6 +88,20 @@ public class OrderSlipTable extends javax.swing.JPanel implements Observer {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.out.println(jTable2.getSelectedRow());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+//        DefaultTableModel modelo = (DefaultTableModel) this.jTable2.getModel();
+//        modelo.setRowCount(0); // Limpiar filas existentes
+//        this.jTable2.repaint();
+        
+        this.productosOrden.clear();
+        this.productos.clear();
+        this.repaintTable();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
