@@ -5,12 +5,20 @@ import com.edc.restaurant.tools.FondoImagen;
 import com.edc.restaurant.tools.Observable;
 import com.edc.restaurant.tools.Observer;
 import java.util.ArrayList;
+import javax.swing.JPanel;
 
 public class CamareroMenuView extends javax.swing.JPanel implements Observable, Observer {
 
     private ArrayList<Observer> observers;
     
     private ConfigFile configFile;
+    
+    public CamareroMenuView() {
+        configFile = new ConfigFile("Eduardo",ConfigFile.MODO_CAMARERO, "192.168.100.158", "192.168.100.4", 5000, "C:/restaurant_agents_files/db/productos.dat", "C:/restaurant_agents_files/images/");
+
+        initComponents();
+    }
+    
     public CamareroMenuView(ConfigFile configFile) {
         observers = new ArrayList<>();
         

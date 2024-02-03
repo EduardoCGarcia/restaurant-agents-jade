@@ -42,7 +42,6 @@ public class FondoImagen extends JPanel {
     private void cargarImagen() {
         try {
             imagen = new ImageIcon(rutaImagen + nombreImagen).getImage();
-            System.out.println(rutaImagen + nombreImagen);
         } catch (Exception e) {
             System.out.println("Error al cargar la imagen: " + e.getMessage());
         }

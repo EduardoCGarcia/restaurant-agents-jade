@@ -14,14 +14,21 @@ public class MenuProductsView extends javax.swing.JPanel implements Observable, 
 
     private ArrayList<Product> products;
     private IData data;
-    
+
     private ConfigFile configFile;
+
+    //Este constructor solo es para permitir su carga en en Frame principal al desarrollar
+    public MenuProductsView() {
+        configFile = new ConfigFile("Eduardo", ConfigFile.MODO_CAMARERO, "192.168.100.158", "192.168.100.4", 5000, "C:/restaurant_agents_files/db/productos.dat", "C:/restaurant_agents_files/images/");
+
+        initComponents();
+    }
 
     public MenuProductsView(ConfigFile configFile) {
         observers = new ArrayList<>();
 
         this.configFile = configFile;
-        
+
         data = new DataImplements();
         this.products = data.readData(this.configFile.getRutaArchivoProductos());
 
