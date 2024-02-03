@@ -1,5 +1,6 @@
 package com.edc.restaurant.views;
 
+import com.edc.restaurant.models.ConfigFile;
 import com.edc.restaurant.models.Product;
 import com.edc.restaurant.models.ProductoCantidad;
 import com.edc.restaurant.tools.FondoImagen;
@@ -20,13 +21,13 @@ public class ProductView extends javax.swing.JPanel implements Observable {
         initComponents();
     }
 
-    public ProductView(Product product) {
+    public ProductView(Product product, ConfigFile configFile) {
         observers = new ArrayList<>();
 
         this.product = product;
         initComponents();
 
-        pnlImage = new FondoImagen(product.getIcon());
+        pnlImage = new FondoImagen(configFile.getRutaImagenes(),product.getIcon());
         lblNombre.setText(product.getLabel());
         lblPrecio.setText("$ " + product.getPrecio() + " UDS");
         this.pnlContainerProductInfo.add(pnlImage, BorderLayout.CENTER);

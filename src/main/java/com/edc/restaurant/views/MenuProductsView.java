@@ -2,6 +2,7 @@ package com.edc.restaurant.views;
 
 import com.edc.restaurant.data.DataImplements;
 import com.edc.restaurant.data.IData;
+import com.edc.restaurant.models.ConfigFile;
 import com.edc.restaurant.models.Product;
 import com.edc.restaurant.tools.Observable;
 import com.edc.restaurant.tools.Observer;
@@ -13,12 +14,16 @@ public class MenuProductsView extends javax.swing.JPanel implements Observable, 
 
     private ArrayList<Product> products;
     private IData data;
+    
+    private ConfigFile configFile;
 
-    public MenuProductsView() {
+    public MenuProductsView(ConfigFile configFile) {
         observers = new ArrayList<>();
 
+        this.configFile = configFile;
+        
         data = new DataImplements();
-        this.products = data.readData("productos.dat");
+        this.products = data.readData(this.configFile.getRutaArchivoProductos());
 
         initComponents();
 
@@ -31,7 +36,7 @@ public class MenuProductsView extends javax.swing.JPanel implements Observable, 
         }
 
         for (Product product : products) {
-            ProductView productView = new ProductView(product);
+            ProductView productView = new ProductView(product, this.configFile);
             productView.addObservable(this);
             this.pnlProducts.add(productView);
         }

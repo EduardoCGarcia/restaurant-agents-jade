@@ -1,5 +1,6 @@
 package com.edc.restaurant.views;
 
+import com.edc.restaurant.models.ConfigFile;
 import com.edc.restaurant.tools.FondoImagen;
 import com.edc.restaurant.tools.Observable;
 import com.edc.restaurant.tools.Observer;
@@ -9,11 +10,11 @@ public class CamareroMenuView extends javax.swing.JPanel implements Observable, 
 
     private ArrayList<Observer> observers;
     
-    
-    public CamareroMenuView() {
+    private ConfigFile configFile;
+    public CamareroMenuView(ConfigFile configFile) {
         observers = new ArrayList<>();
         
-        
+        this.configFile = configFile;
 
         initComponents();
         this.addObservable(orderSlipTable1);
@@ -24,7 +25,7 @@ public class CamareroMenuView extends javax.swing.JPanel implements Observable, 
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        pnlCamareroImage = new FondoImagen("camarero_agente.jpg");
+        pnlCamareroImage = new FondoImagen(this.configFile.getRutaImagenes(),"camarero_agente.jpg");
         pnlTable = new javax.swing.JPanel();
         orderSlipTable1 = new com.edc.restaurant.views.OrderSlipTable();
 

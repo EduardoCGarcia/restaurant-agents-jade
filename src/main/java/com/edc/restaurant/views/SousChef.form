@@ -37,7 +37,7 @@
       <SubComponents>
         <Container class="javax.swing.JPanel" name="pnlChefImage">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new FondoImagen(&quot;souschef.jpg&quot;)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new FondoImagen(this.configFile.getRutaImagenes(),&quot;souschef.jpg&quot;)"/>
           </AuxValues>
 
           <Layout>

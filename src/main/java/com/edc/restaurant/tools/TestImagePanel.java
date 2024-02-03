@@ -11,19 +11,19 @@ import javax.swing.SwingUtilities;
 
 public class TestImagePanel extends JFrame {
 public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Prueba FondoImagen");
-            frame.setSize(400, 300);
-
-            FondoImagen fondo = new FondoImagen("imagen_1.jpg");
-
-            // Puedes cambiar la imagen en tiempo de ejecución
-            // fondo.setNombreImagen("otra_imagen.jpg");
-
-            frame.setContentPane(fondo);
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setVisible(true);
-        });
+//        SwingUtilities.invokeLater(() -> {
+//            JFrame frame = new JFrame("Prueba FondoImagen");
+//            frame.setSize(400, 300);
+//
+//            FondoImagen fondo = new FondoImagen("imagen_1.jpg");
+//
+//            // Puedes cambiar la imagen en tiempo de ejecución
+//            // fondo.setNombreImagen("otra_imagen.jpg");
+//
+//            frame.setContentPane(fondo);
+//            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//            frame.setVisible(true);
+//        });
     }
     
 }

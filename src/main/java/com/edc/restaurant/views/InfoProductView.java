@@ -1,21 +1,27 @@
 package com.edc.restaurant.views;
 
+import com.edc.restaurant.models.ConfigFile;
 import com.edc.restaurant.models.Product;
 import com.edc.restaurant.tools.FondoImagen;
 import java.awt.BorderLayout;
 
 public class InfoProductView extends javax.swing.JDialog {
     private Product product;
+    private ConfigFile configFile;
 
     public InfoProductView(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
     
-    public InfoProductView(java.awt.Frame parent, boolean modal, Product product) {
+    public InfoProductView(java.awt.Frame parent, boolean modal, Product product, ConfigFile configFile) {
         super(parent, modal);
+        
         this.product = product;
+        this.configFile = configFile;
+        
         initComponents();
+        
         this.lblNombre.setText(this.product.getNombre());
         this.lblPrecio.setText("$ " + this.product.getPrecio() + " UDS");
         this.txtPaneDescripcion.setText(this.product.getDescripcion());
@@ -27,7 +33,7 @@ public class InfoProductView extends javax.swing.JDialog {
 
         pnlContainer = new javax.swing.JPanel();
         pnlImage = (this.product != null) ?
-        new FondoImagen(this.product.getIcon()) :
+        new FondoImagen(this.configFile.getRutaImagenes(),this.product.getIcon()) :
         new javax.swing.JPanel();
         pnlInfo = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
