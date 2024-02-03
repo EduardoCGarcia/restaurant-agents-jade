@@ -4,17 +4,23 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 public class FondoImagen extends JPanel {
 
     private Image imagen;
     private String nombreImagen;
-    private String rutaImagen = "C:/restaurant_agents_files/images/";
+    private String rutaImagen;
 
-    public FondoImagen() {
-    }
-
-    public FondoImagen(String nombreImagen) {
+    public FondoImagen(String rutaImagen,String nombreImagen) {
+        this.rutaImagen = rutaImagen;
         this.nombreImagen = nombreImagen;
     }
 

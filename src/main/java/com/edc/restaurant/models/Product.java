@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Product implements Serializable{
     private String nombre;
+    private String label;
     private BigDecimal precio;
     private String descripcion;
     private String icon;
